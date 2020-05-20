@@ -1,0 +1,235 @@
+body
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    background: linear-gradient(233.1deg, #216190 19.65%, #0834D0 81.25%)
+
+.app
+    padding-top: 60px     
+    padding-bottom: 20px
+    font-family: "Open Sans"
+
+    .container
+        padding: 0 15px
+
+    .app_title
+        font-weight: bold
+        font-size: 2.5em
+        color: #fff
+        text-align: center
+        margin-bottom: 20px
+        letter-spacing: 1px
+
+    .form_stages
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .stage_number
+            width: 30px
+            height: 30px
+            background: #1E34A5
+            display: flex
+            align-items: center;
+            justify-content: center
+            font-style: normal
+            font-size: 18px
+            border-radius: 50%
+            color: #fff
+            margin: 0 8px
+            cursor: pointer
+            flex-shrink: 0
+
+            &.active
+                background-color: #DA3F5B
+        
+        .stage_line
+            width: 184px
+            height: 2px
+            background: #E8E8E8
+            opacity: 0.2
+            border-radius: 8px
+
+    .form
+        max-width: 608px
+        width: 100%
+        background: #FFFFFF
+        border-radius: 8px
+        padding: 55px 48px 
+        margin-top: 50px
+
+        .flex_wrap
+            display: flex
+            justify-content: space-between
+
+        .field
+            width: 100%
+            margin-bottom: 40px
+            position: relative
+
+
+        .field label
+            font-style: normal
+            font-weight: 600
+            font-size: 14px
+            color: #636363
+
+            .required
+                color: red
+
+        .field input
+            border: none
+            outline: none
+            background: #F9F9F9
+            border-radius: 8px
+            padding: 8px 8px 8px 16px
+            margin-top: 8px
+            font-weight: normal
+            font-size: 16px
+            color: #272727
+            width: 100%
+
+        .input_error
+            font-weight: normal
+            font-size: 12px
+            color: #F15557
+            margin: 0
+            display: block
+            position: absolute
+            top: 100%
+            left: 0
+            transform: translateY(8px)
+
+
+            &:placeholder
+                font-weight: normal
+                font-size: 16px
+                color: #A7A7A7
+
+        .field textarea
+            display: block
+            width: 100%
+            height: 168px
+            background: #F9F9F9
+            border-radius: 8px
+            padding: 14px 16px
+            color: #272727
+            border: none
+            resize: none
+
+        .field.name
+            max-width: 280px
+            margin-right: 15px
+        .field.number
+            max-width: 178px
+
+
+        .field_file
+            border: 0.65015px solid #33333352
+            box-sizing: border-box
+            border-radius: 10px
+            
+            margin-bottom: 40px
+            position: relative
+
+            .file_label
+                padding: 15px 24px
+                margin: 0
+                display: flex
+                align-items: center
+                justify-content: space-between
+                cursor: pointer
+                border-radius: inherit
+
+
+            input
+                position: absolute
+                width: 0
+                height: 0
+                opacity: 0
+                
+
+            .label_file
+                margin-left: 16px
+                font-weight: normal
+                font-size: 14px
+                color: #333333
+
+
+            .count_attached
+                font-weight: normal
+                font-size: 14px
+                color: #A7A7A7
+
+
+        .submit
+            background: #DA3F5B
+            border-radius: 8px
+            font-weight: bold
+            font-size: 16px
+            color: #fff
+            border: none
+            outline: none
+            padding: 16px 35px
+
+
+
+    
+
+
+
+
+
+
+@media screen 
+    .app .app_title 
+        @media (max-width: 576px) 
+            font-size: 2em
+            margin-bottom: 30px
+
+    .app .form
+        @media (max-width: 576px) 
+            width: 90%
+
+    .app .form .flex_wrap
+        @media (max-width: 576px) 
+            display: block
+
+    .app .form .field.name
+        @media (max-width: 576px) 
+            max-width: none 
+            
+    .app .form .field.number
+        @media (max-width: 576px) 
+            max-width: none 
+
+    .app .form .field_file .file_label 
+        @media (max-width: 576px) 
+            flex-direction: column
+
+    .app .form .field_file .count_attached
+        @media (max-width: 576px) 
+            margin-top: 5px    
+
+    .app .form .submit
+        @media (max-width: 576px) 
+            width: 100%    
+
+    .app .form
+        @media (max-width: 576px) 
+            padding: 30px    
+
+    .app .form .field
+        @media (max-width: 576px) 
+            margin-bottom: 30px 
+
+ 
+
+
+
+
+        
+
+
+
