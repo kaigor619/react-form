@@ -68,7 +68,6 @@ const fields = {
   file: {
     type: 'file',
     name: 'file',
-    required: true,
     label: 'Add file as attachment',
     matchError: matchData.file,
   },

@@ -16,13 +16,7 @@ const Stages = ({ count, active }) => {
     components.push(<StageNumber key={i + Math.random()} {...props} />);
     if (count !== i) components.push(<StageLine key={i + Math.random()} />);
   }
-  return (
-    <div className="row">
-      <div className="col-12">
-        <div className="form_stages">{components}</div>
-      </div>
-    </div>
-  );
+  return <div className="form_stages">{components}</div>;
 };
 
 const StageNumber = ({ active, number }) => {

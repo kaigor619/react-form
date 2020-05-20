@@ -34,8 +34,6 @@ class InputFile extends Component {
 
     let classNames = 'field_file ' + name;
 
-    console.log('renderFile');
-
     return (
       <div className={classNames}>
         <label htmlFor="file" className="file_label">

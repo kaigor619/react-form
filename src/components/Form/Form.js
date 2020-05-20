@@ -101,20 +101,18 @@ class Form extends Component {
     this.updateProps(this.state);
     let { name, number, business, description, file } = this.propsInputs;
     return (
-      <div className="row d-flex justify-content-center">
-        <form action="" className="form" id="form" onSubmit={this.onSubmit}>
-          <div className="flex_wrap">
-            <Input {...name} />
-            <Input {...number} />
-          </div>
-          <Input {...business} />
-          <Input {...description} />
+      <form action="" className="form" id="form" onSubmit={this.onSubmit}>
+        <div className="flex_wrap">
+          <Input {...name} />
+          <Input {...number} />
+        </div>
+        <Input {...business} />
+        <Input {...description} />
 
-          <InputFile {...file} />
+        <InputFile {...file} />
 
-          <Submit text="Submit" />
-        </form>
-      </div>
+        <Submit text="Submit" />
+      </form>
     );
   }
 }
