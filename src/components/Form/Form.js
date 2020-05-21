@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Input';
 import InputFile from './InputFile';
 import Submit from './Submit';
-import fields from './FormData';
 
 class FormContainer extends Component {
   constructor(props) {
@@ -14,6 +13,7 @@ class FormContainer extends Component {
 
     // filling state
     let state = {};
+    let { fields } = this.props;
     for (let key in fields) {
       if (fields[key]['required']) state[key] = '';
     }
@@ -22,6 +22,7 @@ class FormContainer extends Component {
 
   UNSAFE_componentWillMount() {
     // filling in user data
+    let { fields } = this.props;
     let data = {};
     for (let key in fields) {
       data[key] = '';
@@ -42,6 +43,7 @@ class FormContainer extends Component {
   }
 
   changeData(data, value) {
+    let { fields } = this.props;
     if (fields[data].setData) {
       let res = fields[data].setData(value);
       this.data[data] = res;
@@ -51,6 +53,7 @@ class FormContainer extends Component {
   }
 
   checkData(data) {
+    let { fields } = this.props;
     let val = this.data[data];
     let error = fields[data].matchError(val);
 
@@ -67,6 +70,7 @@ class FormContainer extends Component {
   }
 
   getErrors() {
+    let { fields } = this.props;
     let myState = {};
 
     for (let key in this.state) {
