@@ -16,9 +16,7 @@ class InputFile extends Component {
     let elem = e.target;
     if (elem.files) {
       let { length } = elem.files;
-
       this.props.changeData(this.props.name, elem.files);
-
       if (required) this.props.checkData(this.props.name);
       this.setState({ count: length });
     }

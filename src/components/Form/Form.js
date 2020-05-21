@@ -4,7 +4,7 @@ import InputFile from './InputFile';
 import Submit from './Submit';
 import fields from './FormData';
 
-class Form extends Component {
+class FormContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -12,17 +12,16 @@ class Form extends Component {
     this.checkData = this.checkData.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    // Заполнение this.state
+    // filling state
     let state = {};
-
     for (let key in fields) {
       if (fields[key]['required']) state[key] = '';
     }
     this.state = state;
   }
 
-  componentWillMount() {
-    // Заполнение this.data
+  UNSAFE_componentWillMount() {
+    // filling in user data
     let data = {};
     for (let key in fields) {
       data[key] = '';
@@ -30,7 +29,7 @@ class Form extends Component {
 
     this.data = data;
 
-    // заполнение this.propsInputs
+    // filling object propsInputs
     this.propsInputs = {};
 
     for (let key in fields) {
@@ -86,11 +85,8 @@ class Form extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     let myState = this.getErrors();
-
     let error = this.checkError(myState);
-
     if (!error) {
       console.log(this.data);
     } else {
@@ -99,22 +95,26 @@ class Form extends Component {
   }
   render() {
     this.updateProps(this.state);
-    let { name, number, business, description, file } = this.propsInputs;
     return (
-      <form action="" className="form" id="form" onSubmit={this.onSubmit}>
-        <div className="flex_wrap">
-          <Input {...name} />
-          <Input {...number} />
-        </div>
-        <Input {...business} />
-        <Input {...description} />
-
-        <InputFile {...file} />
-
-        <Submit text="Submit" />
-      </form>
+      <FormComponent fieldsProps={this.propsInputs} onSubmit={this.onSubmit} />
     );
   }
 }
 
-export default Form;
+const FormComponent = ({ fieldsProps, onSubmit }) => {
+  let { name, number, business, description, file } = fieldsProps;
+  return (
+    <form action="" className="form" id="form" onSubmit={onSubmit}>
+      <div className="flex_wrap">
+        <Input {...name} />
+        <Input {...number} />
+      </div>
+      <Input {...business} />
+      <Input {...description} />
+      <InputFile {...file} />
+      <Submit text="Submit" />
+    </form>
+  );
+};
+
+export default FormContainer;

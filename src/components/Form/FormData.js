@@ -4,15 +4,15 @@ const str_correct_number = 'Please enter number from 1 to 99';
 let matchData = {
   text: (value) => {
     let error = '';
-    if (value == '') error = str_required;
+    if (value === '') error = str_required;
     return error;
   },
   number: (value) => {
     let error = '';
-    if (value == '') error = str_required;
+    if (value === '') error = str_required;
     if (isNaN(value)) error = str_correct_number;
 
-    if (error == '') {
+    if (error === '') {
       if (value < 1 || value > 99) {
         error = str_correct_number;
       }
@@ -21,13 +21,11 @@ let matchData = {
   },
   file: (value) => {
     let error = '';
-
-    if (value == '') error = str_required;
+    if (value === '') error = str_required;
     else {
       if (value instanceof FileList && value.length < 1)
         error = 'Please, add at least 1 file';
     }
-
     return error;
   },
 };

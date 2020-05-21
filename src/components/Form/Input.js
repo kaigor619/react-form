@@ -5,23 +5,17 @@ import Error from './Error';
 
 const requiredComponent = <span className="required">*</span>;
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-  }
+class InputContainer extends Component {
   state = {
     value: '',
     errorVisible: this.props.error,
   };
-  requiredComponent = (<span className="required">*</span>);
 
   shouldComponentUpdate(nextProps, nextState) {
     let b = false;
     let { errorVisible, value } = this.state;
 
-    if (!equal_props(this.props, nextProps)) {
+    if (!equal_props(this.props.data, nextProps.data)) {
       b = true;
     }
     if (this.props.error !== nextProps.error) {
@@ -29,7 +23,10 @@ class Input extends Component {
       b = false;
     }
 
-    if (!equal_props(this.state, nextState)) b = true;
+    if (!equal_props(this.state, nextState)) {
+      if (value !== nextState.value) this.updateValueProps(nextState.value);
+      b = true;
+    }
     return b;
   }
 
@@ -40,10 +37,12 @@ class Input extends Component {
     if (this.state.errorVisible) myState.errorVisible = false;
     this.setState(myState);
   }
+  updateValueProps(value) {
+    this.inputProps.value = value;
+  }
   handleBlur() {
     let { errorVisible } = this.state;
     if (!errorVisible) this.setState({ errorVisible: true });
-
     if (this.props.required) this.props.checkData(this.props.name);
   }
 
@@ -54,49 +53,63 @@ class Input extends Component {
     onBlur: this.handleBlur.bind(this),
     id: this.props.name,
     name: this.props.name,
+    value: this.state.value,
     placeholder: this.props.placeholder,
   };
 
   render() {
-    let { name, required, label, placeholder, error, html } = this.props;
-    let { errorVisible } = this.state;
-
-    let classNames = cx('field', name);
-
-    let required_component = required ? requiredComponent : null;
-
-    let error_component =
-      errorVisible && error !== '' ? <Error text={error} /> : null;
-
-    let outComponent = <input {...this.inputProps} />;
-
-    if (html == 'textarea')
-      outComponent = <textarea {...this.inputProps}></textarea>;
-
-    return (
-      <div className={classNames}>
-        <label htmlFor="number_people">
-          {label} {required_component}
-        </label>
-        {outComponent}
-        {error_component}
-      </div>
-    );
+    let props = {
+      ...this.props,
+      inputProps: this.inputProps,
+      errorVisible: this.state.errorVisible,
+    };
+    return <InputComponent {...props} />;
   }
 }
 
-Input.defaultProps = {
+const InputComponent = ({
+  name,
+  required,
+  errorVisible,
+  error,
+  inputProps,
+  label,
+  html,
+  type,
+}) => {
+  let classNames = cx('field', name);
+
+  let required_component = required ? requiredComponent : null;
+
+  let error_component =
+    errorVisible && error !== '' ? <Error text={error} /> : null;
+
+  let outComponent = <input type={type} {...inputProps} />;
+
+  if (html === 'textarea') outComponent = <textarea {...inputProps}></textarea>;
+  return (
+    <div className={classNames}>
+      <label htmlFor={name}>
+        {label} {required_component}
+      </label>
+      {outComponent}
+      {error_component}
+    </div>
+  );
+};
+
+InputContainer.defaultProps = {
   name: '',
   type: 'text',
-  label: '',
-  html: 'input',
-  required: false,
-  placeholder: '',
-  error: '',
   changeData: (data, value) => {},
   checkData: (data) => {},
+  label: '',
+  required: false,
+  placeholder: '',
+  html: 'input',
+  error: '',
 };
-Input.propTypes = {
+InputContainer.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   changeData: PropTypes.func.isRequired,
@@ -110,11 +123,11 @@ Input.propTypes = {
 
 const equal_props = (props1, props2) => {
   for (let key in props1) {
-    if (key != 'changeData' && key != 'checkData') {
+    if (key !== 'changeData' && key !== 'checkData') {
       if (props1[key] !== props2[key]) return false;
     }
   }
   return true;
 };
 
-export default Input;
+export default InputContainer;
