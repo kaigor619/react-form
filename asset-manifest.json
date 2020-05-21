@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/kaigor619/react-form/static/css/main.c05960de.chunk.css",
+    "main.js": "/kaigor619/react-form/static/js/main.95ab3d90.chunk.js",
+    "main.js.map": "/kaigor619/react-form/static/js/main.95ab3d90.chunk.js.map",
+    "runtime-main.js": "/kaigor619/react-form/static/js/runtime-main.4d2d578f.js",
+    "runtime-main.js.map": "/kaigor619/react-form/static/js/runtime-main.4d2d578f.js.map",
+    "static/js/2.aeccbd60.chunk.js": "/kaigor619/react-form/static/js/2.aeccbd60.chunk.js",
+    "static/js/2.aeccbd60.chunk.js.map": "/kaigor619/react-form/static/js/2.aeccbd60.chunk.js.map",
+    "index.html": "/kaigor619/react-form/index.html",
+    "precache-manifest.7a10f82053f37c65ee86f10e542e8bbf.js": "/kaigor619/react-form/precache-manifest.7a10f82053f37c65ee86f10e542e8bbf.js",
+    "service-worker.js": "/kaigor619/react-form/service-worker.js",
+    "static/css/main.c05960de.chunk.css.map": "/kaigor619/react-form/static/css/main.c05960de.chunk.css.map",
+    "static/js/2.aeccbd60.chunk.js.LICENSE.txt": "/kaigor619/react-form/static/js/2.aeccbd60.chunk.js.LICENSE.txt",
+    "static/media/folder.svg": "/kaigor619/react-form/static/media/folder.98bf746b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d2d578f.js",
+    "static/js/2.aeccbd60.chunk.js",
+    "static/css/main.c05960de.chunk.css",
+    "static/js/main.95ab3d90.chunk.js"
+  ]
+}
