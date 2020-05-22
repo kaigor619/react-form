@@ -1,8 +1,8 @@
 {
   "name": "task",
   "version": "0.1.0",
-  "homepage": "http://github.com/kaigor619/react-form",
   "private": true,
+  "homepage": "http://kaigor619.github.io/react-form/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -14,7 +14,6 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
