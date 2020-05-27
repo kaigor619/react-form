@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import folder from '../../assets/svg/folder.svg';
-import Error from './Error';
+import folder from './folder.svg';
+import Error from '../Error/Error';
+import './FieldFile.sass';
 
 class InputFile extends Component {
   constructor(props) {

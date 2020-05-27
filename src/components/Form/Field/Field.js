@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Error from './Error';
+import Error from '../Error/Error';
+import './Field.sass';
 
 const requiredComponent = <span className="required">*</span>;
 

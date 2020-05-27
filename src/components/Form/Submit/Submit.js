@@ -1,4 +1,5 @@
 import React from 'react';
+import './Submit.sass';
 
 const Submit = ({ text }) => {
   return (

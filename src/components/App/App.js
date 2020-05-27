@@ -1,10 +1,10 @@
 import React from 'react';
-import Title from './Title';
-import Stages from './Stages';
-import Form from './Form/Form';
-import fields from '../data/form';
+import Title from '../Title/Title';
+import Stages from '../Stages/Stages';
+import Form from '../Form';
+import fields from '../../data/form';
 
-import '../assets/sass/style.sass';
+import './App.sass';
 
 const App = () => {
   return (

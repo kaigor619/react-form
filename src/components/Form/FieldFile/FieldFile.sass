@@ -1,0 +1,45 @@
+.field_file
+    border: 0.65px solid #33333352
+    box-sizing: border-box
+    border-radius: 10px
+    margin-bottom: 40px
+    position: relative
+
+    .fileUpload
+        display: flex
+        align-items: center
+
+    .file_label
+        padding: 15px 24px
+        margin: 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+        cursor: pointer
+        border-radius: inherit
+
+    input
+        position: absolute
+        width: 0
+        height: 0
+        opacity: 0
+        
+
+    .label_file
+        margin-left: 16px
+        font-weight: normal
+        font-size: 14px
+        color: #333333
+
+    .count_attached
+        font-weight: normal
+        font-size: 14px
+        color: #A7A7A7
+
+@media screen 
+    .file_label
+        @media (max-width: 576px) 
+            flex-direction: column
+    .count_attached
+        @media (max-width: 576px) 
+            margin-top: 5px
